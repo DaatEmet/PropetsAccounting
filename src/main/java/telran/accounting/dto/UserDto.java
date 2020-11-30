@@ -1,6 +1,6 @@
+
 package telran.accounting.dto;
 
-import java.util.List;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -16,6 +16,7 @@ public class UserDto {
 	String name;
 	String email;
 	String avatar;
-	long phone;
-	List<String> roles;
+	String phone;
+	boolean blockStatus = false;
+	Set<String> roles;
 }

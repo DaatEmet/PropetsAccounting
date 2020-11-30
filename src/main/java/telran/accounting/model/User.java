@@ -1,8 +1,7 @@
 package telran.accounting.model;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
@@ -19,16 +18,22 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = { "email" })
-@Document(collection = "user")
-public class User {
+@Document(collection = "user") 
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6385710609852631794L;
 	String name;
 	@Id
 	String email;
 	String password;
 	String avatar;
-	long phone;
-	List<String> roles = new ArrayList<>();
+	String phone;
+	Boolean blockStatus = false;
+	Set<String> roles = new HashSet<>();
 	Set<String> favorite = new HashSet<>();
+	Set<String> acivity = new HashSet<>();
 
 	public boolean addRole(String role) {
 		return roles.add(role);
